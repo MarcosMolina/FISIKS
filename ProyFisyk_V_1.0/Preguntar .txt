@@ -4,4 +4,5 @@ SesionDetalle
 -------------------------------
 tipoDia ==> DiaTipo'?'
 -------------------------------
-table Sexo???
+table Sexo???table Sexo???
+no
