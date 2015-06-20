@@ -26,7 +26,7 @@ namespace FisykDAL
 
             //rdr.Close()
             
-            //List<PersonaDTO> ClientList = new List<PersonaDTO>();
+            List<PersonaDTO> ClientList = new List<PersonaDTO>();
             //try
             //{
             //    command.Connection.Open();
@@ -105,48 +105,48 @@ namespace FisykDAL
         public static void GrabarPersonas(ref PersonaDTO Persona)
         {
 
-            #region Insert New Persona
-            OracleCommand cmd = new OracleCommand();
-            try
-            {
-                //------------------------------------------------------------------------------
-                // Consulta Text
-                //------------------------------------------------------------------------------
-                //string querystring = "INSERT INTO PERSONA ( psnNombre) VALUES (:psnNombre)";
-                //OracleCommand cmd = new OracleCommand(querystring);
-                //cmd.Connection = GetConn();
-                //cmd.CommandType = CommandType.Text;
-                //cmd.Parameters.Add(new OracleParameter(":psnNombre", Persona.psnNombre));
+            //#region Insert New Persona
+            //OracleCommand cmd = new OracleCommand();
+            //try
+            //{
+            //    ------------------------------------------------------------------------------
+            //     Consulta Text
+            //    ------------------------------------------------------------------------------
+                string querystring = "INSERT INTO PERSONA ( psnNombre) VALUES (:psnNombre)";
+                OracleCommand cmd = new OracleCommand(querystring);
+                cmd.Connection = GetConn();
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.Add(new OracleParameter(":psnNombre", Persona.psnNombre));
 
                 //------------------------------------------------------------------------------
                 // Consulta StoredProcedure
                 //------------------------------------------------------------------------------
-                cmd.Connection = GetConn();
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "PKG_PERSONA.InsertPersona";
+                //cmd.Connection = GetConn();
+                //cmd.CommandType = CommandType.StoredProcedure;
+                //cmd.CommandText = "PKG_PERSONA.InsertPersona";
 
-                cmd.Parameters.Add(CreateParameter("psn_tpdId", Persona.psn_tpdId));//NUMBER
-                cmd.Parameters.Add(CreateParameter("psnNroDcto", Persona.psnNroDcto));//NUMBER
-                cmd.Parameters.Add(CreateParameter("psnNombre", Persona.psnNombre, 45));//VARCHAR
-                cmd.Parameters.Add(CreateParameter("psnApellido", Persona.psnApellido, 45));//VARCHAR
-                cmd.Parameters.Add(CreateParameter("psnFechaNac", Persona.psnFechaNac, 12));//VARCHAR
-                cmd.Parameters.Add(CreateParameter("psnTelefono", Persona.psnTelefono, 20));//VARCHAR
-                cmd.Parameters.Add(CreateParameter("psnSexo", Persona.psnSexo, 1));//VARCHAR
-                cmd.Parameters.Add(CreateParameter("psn_domId", Persona.psn_domId));//NUMBER
+                //cmd.Parameters.Add(CreateParameter("psn_tpdId", Persona.psn_tpdId));//NUMBER
+                //cmd.Parameters.Add(CreateParameter("psnNroDcto", Persona.psnNroDcto));//NUMBER
+                //cmd.Parameters.Add(CreateParameter("psnNombre", Persona.psnNombre, 45));//VARCHAR
+                //cmd.Parameters.Add(CreateParameter("psnApellido", Persona.psnApellido, 45));//VARCHAR
+                //cmd.Parameters.Add(CreateParameter("psnFechaNac", Persona.psnFechaNac, 12));//VARCHAR
+                //cmd.Parameters.Add(CreateParameter("psnTelefono", Persona.psnTelefono, 20));//VARCHAR
+                //cmd.Parameters.Add(CreateParameter("psnSexo", Persona.psnSexo, 1));//VARCHAR
+                //cmd.Parameters.Add(CreateParameter("psn_domId", Persona.psn_domId));//NUMBER
                 
                 // Run the command.
                 cmd.Connection.Open();
                 cmd.ExecuteNonQuery();
-            }
-            catch(Exception ex)
-            { 
-                throw ex; 
-            }
-            finally
-            {
-                cmd.Connection.Close();
-            }
-            #endregion
+            //}
+            //catch(Exception ex)
+            //{ 
+            //    throw ex; 
+            //}
+            //finally
+            //{
+            //    cmd.Connection.Close();
+            //}
+            //#endregion
 
             /*
             if (Persona.IsNew)
