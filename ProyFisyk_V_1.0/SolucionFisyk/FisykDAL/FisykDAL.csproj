@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7D9FDD4F-06B3-4580-822F-7004F4F8262A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FisykDAL</RootNamespace>
+    <AssemblyName>FisykDAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Oracle.DataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DAL\AfeccionesTratamientosDB.cs" />
+    <Compile Include="DAL\AgendaDB.cs" />
+    <Compile Include="DAL\AntecendenteMedicoDB.cs" />
+    <Compile Include="DAL\AfeccionesDB.cs" />
+    <Compile Include="DAL\AfeccionesTipoDB.cs" />
+    <Compile Include="DAL\DiaTipoDB.cs" />
+    <Compile Include="DAL\PersonaDB.cs" />
+    <Compile Include="DAL\DiaAtencionDB.cs" />
+    <Compile Include="DAL\DiaDB.cs" />
+    <Compile Include="DAL\DomicilioDB.cs" />
+    <Compile Include="DAL\EstadoDB.cs" />
+    <Compile Include="DAL\HistoriaClinicaDB.cs" />
+    <Compile Include="DAL\LocalidadDB.cs" />
+    <Compile Include="DAL\ObraSocialDB.cs" />
+    <Compile Include="DAL\OcupacionesDB.cs" />
+    <Compile Include="DAL\PacienteDB.cs" />
+    <Compile Include="DAL\PacienteOcupacionesDB.cs" />
+    <Compile Include="DAL\PacientesAntecedentesDB.cs" />
+    <Compile Include="DAL\PacientesOsDB.cs" />
+    <Compile Include="DAL\PaisDB.cs" />
+    <Compile Include="Parsers\DP_DiaTipo.cs" />
+    <Compile Include="Parsers\DP_TipoDocumento.cs" />
+    <Compile Include="Parsers\DP_Tratamiento.cs" />
+    <Compile Include="Parsers\DP_Turno.cs" />
+    <Compile Include="Parsers\DP_Vacaciones.cs" />
+    <Compile Include="Parsers\DP_ZonaCuerpo.cs" />
+    <Compile Include="Parsers\DP_Sesion.cs" />
+    <Compile Include="Parsers\DP_SesionDetalle.cs" />
+    <Compile Include="Parsers\DP_Test.cs" />
+    <Compile Include="Parsers\DP_TestDetalle.cs" />
+    <Compile Include="Parsers\DP_TestTipo.cs" />
+    <Compile Include="Parsers\DP_PacienteOcupaciones.cs" />
+    <Compile Include="Parsers\DP_Pais.cs" />
+    <Compile Include="Parsers\DP_Persona.cs" />
+    <Compile Include="Parsers\DP_Profesional.cs" />
+    <Compile Include="Parsers\DP_Provincia.cs" />
+    <Compile Include="Parsers\DP_Ocupaciones.cs" />
+    <Compile Include="Parsers\DP_PacienteAntecedentes.cs" />
+    <Compile Include="Parsers\DP_PacienteOs.cs" />
+    <Compile Include="Parsers\DP_Paciente.cs" />
+    <Compile Include="Parsers\DP_Localidad.cs" />
+    <Compile Include="Parsers\DP_ObraSocial.cs" />
+    <Compile Include="Parsers\DP_Estado.cs" />
+    <Compile Include="Parsers\DP_HistoriaClinica.cs" />
+    <Compile Include="Parsers\DP_Domicilio.cs" />
+    <Compile Include="Parsers\DP_Agenda.cs" />
+    <Compile Include="Parsers\DP_AntecedenteMedico.cs" />
+    <Compile Include="Parsers\DP_Dia.cs" />
+    <Compile Include="Parsers\DP_DiaAtencion.cs" />
+    <Compile Include="Parsers\DP_AfeccionesTratamientos.cs" />
+    <Compile Include="Parsers\DP_AfeccionesTipos.cs" />
+    <Compile Include="Parsers\DP_Afecciones.cs" />
+    <Compile Include="DAL\ProfesionalDB.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DAL\ProvinciaDB.cs" />
+    <Compile Include="DAL\SesionDB.cs" />
+    <Compile Include="DAL\SesionDetalleDB.cs" />
+    <Compile Include="DAL\TestDB.cs" />
+    <Compile Include="DAL\TestDetalleDB.cs" />
+    <Compile Include="DAL\TestTipoDB.cs" />
+    <Compile Include="DAL\TipoDocumentoDB.cs" />
+    <Compile Include="DAL\TratamientoDB.cs" />
+    <Compile Include="TurnoDB.cs" />
+    <Compile Include="Util\DALBase.cs" />
+    <Compile Include="Util\DTOParser.cs" />
+    <Compile Include="Util\DTOParserFactory.cs" />
+    <Compile Include="Util\DTOParserSQLOracle.cs" />
+    <Compile Include="VacacionesDB.cs" />
+    <Compile Include="ZonaCuerpoDB.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\FisykDTO\FisykDTO.csproj">
+      <Project>{328be41d-9803-4eab-94b9-11f33c308401}</Project>
+      <Name>FisykDTO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
