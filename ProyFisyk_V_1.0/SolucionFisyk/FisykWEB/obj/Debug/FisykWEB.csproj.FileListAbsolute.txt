@@ -1,0 +1,19 @@
+C:\Users\Chapa Santoro\Desktop\ProyFisyk\SolucionFisyk\FisykWEB\bin\FisykWEB.dll.config
+C:\Users\Chapa Santoro\Desktop\ProyFisyk\SolucionFisyk\FisykWEB\bin\FisykWEB.dll
+C:\Users\Chapa Santoro\Desktop\ProyFisyk\SolucionFisyk\FisykWEB\bin\FisykWEB.pdb
+C:\Users\Chapa Santoro\Desktop\ProyFisyk\SolucionFisyk\FisykWEB\obj\Debug\FisykWEB.csprojResolveAssemblyReference.cache
+C:\Users\Chapa Santoro\Desktop\ProyFisyk\SolucionFisyk\FisykWEB\obj\Debug\FisykWEB.dll
+C:\Users\Chapa Santoro\Desktop\ProyFisyk\SolucionFisyk\FisykWEB\obj\Debug\FisykWEB.pdb
+D:\UTN\ProyFisyk\SolucionFisyk\FisykWEB\bin\FisykWEB.dll.config
+D:\UTN\ProyFisyk\SolucionFisyk\FisykWEB\bin\FisykWEB.dll
+D:\UTN\ProyFisyk\SolucionFisyk\FisykWEB\bin\FisykWEB.pdb
+D:\UTN\ProyFisyk\SolucionFisyk\FisykWEB\bin\FisykBLL.dll
+D:\UTN\ProyFisyk\SolucionFisyk\FisykWEB\bin\FisykDTO.dll
+D:\UTN\ProyFisyk\SolucionFisyk\FisykWEB\bin\FisykDAL.dll
+D:\UTN\ProyFisyk\SolucionFisyk\FisykWEB\bin\Oracle.DataAccess.dll
+D:\UTN\ProyFisyk\SolucionFisyk\FisykWEB\bin\FisykBLL.pdb
+D:\UTN\ProyFisyk\SolucionFisyk\FisykWEB\bin\FisykDTO.pdb
+D:\UTN\ProyFisyk\SolucionFisyk\FisykWEB\bin\FisykDAL.pdb
+D:\UTN\ProyFisyk\SolucionFisyk\FisykWEB\obj\Debug\FisykWEB.csprojResolveAssemblyReference.cache
+D:\UTN\ProyFisyk\SolucionFisyk\FisykWEB\obj\Debug\FisykWEB.dll
+D:\UTN\ProyFisyk\SolucionFisyk\FisykWEB\obj\Debug\FisykWEB.pdb

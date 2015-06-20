@@ -1,0 +1,7 @@
+SesionDetalle 
+  des_traId INT NULL,
+  dse_traId INT NULL,
+-------------------------------
+tipoDia ==> DiaTipo'?'
+-------------------------------
+table Sexo???

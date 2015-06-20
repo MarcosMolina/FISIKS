@@ -1,0 +1,10 @@
+C:\Users\Chapa Santoro\Desktop\ProyFisyk\SolucionFisyk\FisykDTO\bin\Debug\FisykDTO.dll
+C:\Users\Chapa Santoro\Desktop\ProyFisyk\SolucionFisyk\FisykDTO\bin\Debug\FisykDTO.pdb
+C:\Users\Chapa Santoro\Desktop\ProyFisyk\SolucionFisyk\FisykDTO\obj\Debug\FisykDTO.dll
+C:\Users\Chapa Santoro\Desktop\ProyFisyk\SolucionFisyk\FisykDTO\obj\Debug\FisykDTO.pdb
+C:\Users\Chapa Santoro\Desktop\ProyFisyk\SolucionFisyk\FisykDTO\obj\Debug\FisykDTO.csprojResolveAssemblyReference.cache
+D:\UTN\ProyFisyk\SolucionFisyk\FisykDTO\bin\Debug\FisykDTO.dll
+D:\UTN\ProyFisyk\SolucionFisyk\FisykDTO\bin\Debug\FisykDTO.pdb
+D:\UTN\ProyFisyk\SolucionFisyk\FisykDTO\obj\Debug\FisykDTO.dll
+D:\UTN\ProyFisyk\SolucionFisyk\FisykDTO\obj\Debug\FisykDTO.pdb
+D:\UTN\ProyFisyk\SolucionFisyk\FisykDTO\obj\Debug\FisykDTO.csprojResolveAssemblyReference.cache
