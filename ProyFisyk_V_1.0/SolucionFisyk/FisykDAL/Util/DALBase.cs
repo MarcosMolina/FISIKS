@@ -20,7 +20,7 @@ namespace FisykDAL
         {
             string conString;
             OracleConnection objCon;
-            
+
             conString = ConfigurationManager.ConnectionStrings["CHAPA"].ConnectionString;
             objCon = new OracleConnection(conString);
 

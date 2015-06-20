@@ -104,13 +104,13 @@
     <Compile Include="DAL\TestTipoDB.cs" />
     <Compile Include="DAL\TipoDocumentoDB.cs" />
     <Compile Include="DAL\TratamientoDB.cs" />
-    <Compile Include="TurnoDB.cs" />
+    <Compile Include="DAL\TurnoDB.cs" />
     <Compile Include="Util\DALBase.cs" />
     <Compile Include="Util\DTOParser.cs" />
     <Compile Include="Util\DTOParserFactory.cs" />
     <Compile Include="Util\DTOParserSQLOracle.cs" />
-    <Compile Include="VacacionesDB.cs" />
-    <Compile Include="ZonaCuerpoDB.cs" />
+    <Compile Include="DAL\VacacionesDB.cs" />
+    <Compile Include="DAL\ZonaCuerpoDB.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

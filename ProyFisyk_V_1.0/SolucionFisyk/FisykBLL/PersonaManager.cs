@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FisykDTO.Entities;
+using FisykDTO;
 using FisykDAL;
 
 namespace FisykBLL

@@ -1,0 +1,5 @@
+D:\UTN\ProyFisyk\SolucionFisyk\FisiksAppWeb\bin\FisiksAppWeb.dll.config
+D:\UTN\ProyFisyk\SolucionFisyk\FisiksAppWeb\bin\FisiksAppWeb.dll
+D:\UTN\ProyFisyk\SolucionFisyk\FisiksAppWeb\bin\FisiksAppWeb.pdb
+D:\UTN\ProyFisyk\SolucionFisyk\FisiksAppWeb\obj\Debug\FisiksAppWeb.dll
+D:\UTN\ProyFisyk\SolucionFisyk\FisiksAppWeb\obj\Debug\FisiksAppWeb.pdb
