@@ -1,0 +1,10 @@
+CREATE OR REPLACE PROCEDURE FISIKS.PRC_OBRASOCIALES_SELECT(
+    oCursorOSocial   OUT sys_refcursor)
+
+AS
+BEGIN
+    
+    OPEN oCursorOSocial FOR SELECT * FROM OBRASOCIAL ;
+
+END;
+/
