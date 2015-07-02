@@ -1,0 +1,18 @@
+CREATE OR REPLACE PROCEDURE FISIKS.PRC_PACIENTEOS_INSERT (
+    iOSP_PAEID            IN PACIENTEOS.OSP_PAEID%TYPE :=NULL,
+    iOSP_OSOID           IN PACIENTEOS.OSP_OSOID%TYPE := NULL,
+    iOSPNROSOCIO       IN PACIENTEOS.OSPNROSOCIO%TYPE := NULL)
+AS
+BEGIN
+           
+        INSERT INTO PACIENTEOS
+            (OSP_PAEID,
+            OSP_OSOID,
+            OSPNROSOCIO)
+        VALUES
+            (iOSP_PAEID,
+            iOSP_OSOID,
+            iOSPNROSOCIO);               
+
+END;
+/

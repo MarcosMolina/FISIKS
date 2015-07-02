@@ -1,0 +1,26 @@
+CREATE OR REPLACE PROCEDURE FISIKS.PRC_PACIENTE_INSERT (
+    iPAEPESO                IN PACIENTE.PAEPESO%TYPE :=NULL,
+    iPAEALTURA            IN PACIENTE.PAEALTURA%TYPE := NULL,
+    iPAEACTFISICA        IN PACIENTE.PAEACTFISICA%TYPE := NULL,
+    iPAEPERIODICIDAD   IN PACIENTE.PAEPERIODICIDAD%TYPE := NULL,
+    iPAE_PSNID             IN PACIENTE.PAE_PSNID%TYPE,--No puede ser null --> relacion con PERSONA
+    oPAEID                   OUT NUMBER)
+AS
+BEGIN
+           
+        INSERT INTO PACIENTE
+            (PAEPESO,
+            PAEALTURA,
+            PAEACTFISICA,
+            PAEPERIODICIDAD,
+            PAE_PSNID)
+        VALUES
+            (iPAEPESO,
+            iPAEALTURA,
+            iPAEACTFISICA,
+            iPAEPERIODICIDAD,
+            iPAE_PSNID)
+        RETURNING PAEID INTO oPAEID;
+        
+END;
+/

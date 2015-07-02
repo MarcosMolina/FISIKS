@@ -1,0 +1,10 @@
+CREATE OR REPLACE PROCEDURE FISIKS.PRC_OCUPACIONES_SELECT(
+    oCursorOcupaciones   OUT sys_refcursor)
+
+AS
+BEGIN
+    
+    OPEN oCursorOcupaciones FOR SELECT * FROM OCUPACIONES ;
+
+END;
+/
