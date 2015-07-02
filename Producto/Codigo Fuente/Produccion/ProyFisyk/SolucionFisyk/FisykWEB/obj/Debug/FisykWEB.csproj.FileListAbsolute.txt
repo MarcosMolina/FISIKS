@@ -1,0 +1,6 @@
+C:\Users\Chapa Santoro\Desktop\ProyFisyk\SolucionFisyk\FisykWEB\bin\FisykWEB.dll.config
+C:\Users\Chapa Santoro\Desktop\ProyFisyk\SolucionFisyk\FisykWEB\bin\FisykWEB.dll
+C:\Users\Chapa Santoro\Desktop\ProyFisyk\SolucionFisyk\FisykWEB\bin\FisykWEB.pdb
+C:\Users\Chapa Santoro\Desktop\ProyFisyk\SolucionFisyk\FisykWEB\obj\Debug\FisykWEB.csprojResolveAssemblyReference.cache
+C:\Users\Chapa Santoro\Desktop\ProyFisyk\SolucionFisyk\FisykWEB\obj\Debug\FisykWEB.dll
+C:\Users\Chapa Santoro\Desktop\ProyFisyk\SolucionFisyk\FisykWEB\obj\Debug\FisykWEB.pdb

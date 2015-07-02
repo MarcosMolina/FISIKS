@@ -1,0 +1,3 @@
+-->> Carpeta Produccion: Version estable y final para una fecha determinada.
+
+-->> Carpeta Desarrollo: Version ha utilizar para el desarrollo
