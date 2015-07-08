@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ManagerAntecedentesMedicos.cs" />
     <Compile Include="ManagerObraSociales.cs" />
     <Compile Include="ManagerOcupaciones.cs" />
     <Compile Include="ManagerPacientes.cs" />

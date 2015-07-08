@@ -5,14 +5,14 @@ namespace FisiksAppWeb.Entities
 {
     public class TurneroDto : DtoBase
     {
-        public int TurId { get; set; }
-        public string TurTitulo { get; set; }
-        public string TurDescripcion { get; set; }
-        public DateTime TurFechaIni { get; set; }
-        public DateTime TurFechaFin { get; set; }
-        public bool TurTodoDia { get; set; }
-        public int TurPaeId { get; set; }
-        public int TurProId { get; set; }
+        public int TurId;
+        public string TurTitulo;
+        public string TurDescripcion;
+        public DateTime TurFechaIni;
+        public DateTime TurFechaFin;
+        public bool TurTodoDia ;
+        public int TurPaeId;
+        public int TurProId;
 
         //public TurneroDTO()
         //{

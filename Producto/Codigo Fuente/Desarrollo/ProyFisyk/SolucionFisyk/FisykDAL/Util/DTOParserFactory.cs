@@ -17,11 +17,8 @@ namespace FisykDAL
                     return new DpObraSocial();
                 case "OcupacionesDto":
                    return new DpOcupaciones();
-               /*case "PriorityDTO":
-                   return new DTOParser_Priority();
-               case "SeverityDTO":
-                   return new DTOParser_Severity();
-           */
+                case "AntecedenteMedicoDto":
+                   return new DpAntecedenteMedico();
             }
 
             throw new Exception("Unknown Type");

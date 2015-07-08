@@ -11,3 +11,8 @@ D:\UTN\ProyFisyk\SolucionFisyk\FisiksAppWeb\bin\FisykDAL.pdb
 D:\UTN\ProyFisyk\SolucionFisyk\FisiksAppWeb\obj\Debug\FisiksAppWeb.csprojResolveAssemblyReference.cache
 D:\UTN\ProyFisyk\SolucionFisyk\FisiksAppWeb\obj\Debug\FisiksAppWeb.dll
 D:\UTN\ProyFisyk\SolucionFisyk\FisiksAppWeb\obj\Debug\FisiksAppWeb.pdb
+D:\UTN\ProyFisyk\SolucionFisyk\FisiksAppWeb\bin\AjaxControlToolkit.dll
+D:\UTN\ProyFisyk\SolucionFisyk\FisiksAppWeb\bin\AjaxControlToolkit.HtmlEditor.Sanitizer.dll
+D:\UTN\ProyFisyk\SolucionFisyk\FisiksAppWeb\bin\HtmlAgilityPack.dll
+D:\UTN\ProyFisyk\SolucionFisyk\FisiksAppWeb\bin\HtmlAgilityPack.pdb
+D:\UTN\ProyFisyk\SolucionFisyk\FisiksAppWeb\bin\HtmlAgilityPack.xml

@@ -3,7 +3,7 @@ using System.Data;
 using FisiksAppWeb.Entities;
 using Oracle.DataAccess.Client;
 
-namespace FisykDAL
+namespace FisykDAL.DAL
 {
     public class ObraSocialDb : DalBase
     {

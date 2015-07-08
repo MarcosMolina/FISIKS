@@ -13,6 +13,15 @@ namespace FisiksAppWeb {
     public partial class PacientesAbm {
         
         /// <summary>
+        /// Control lblControl.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblControl;
+        
+        /// <summary>
         /// Control txtDoc.
         /// </summary>
         /// <remarks>
@@ -31,13 +40,22 @@ namespace FisiksAppWeb {
         protected global::System.Web.UI.WebControls.Button btnBuscar;
         
         /// <summary>
-        /// Control panelDatos.
+        /// Control ckBusqueda.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panelDatos;
+        protected global::System.Web.UI.WebControls.CheckBox ckBusqueda;
+        
+        /// <summary>
+        /// Control panelColap.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panelColap;
         
         /// <summary>
         /// Control txtNombre.
@@ -85,22 +103,22 @@ namespace FisiksAppWeb {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtDire;
         
         /// <summary>
-        /// Control ddlAltura.
+        /// Control rbM.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlAltura;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rbM;
         
         /// <summary>
-        /// Control ddlPeso.
+        /// Control rbF.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPeso;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rbF;
         
         /// <summary>
         /// Control UpdatePanelObraSocial.
@@ -130,22 +148,40 @@ namespace FisiksAppWeb {
         protected global::System.Web.UI.WebControls.DropDownList ddlOcu;
         
         /// <summary>
-        /// Control btnOcu.
+        /// Control ddlAltura.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnOcu;
+        protected global::System.Web.UI.WebControls.DropDownList ddlAltura;
         
         /// <summary>
-        /// Control ListOcu.
+        /// Control ddlPeso.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox ListOcu;
+        protected global::System.Web.UI.WebControls.DropDownList ddlPeso;
+        
+        /// <summary>
+        /// Control ddlMin.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlMin;
+        
+        /// <summary>
+        /// Control ddlMax.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlMax;
         
         /// <summary>
         /// Control cbAct.
@@ -166,31 +202,76 @@ namespace FisiksAppWeb {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtAct;
         
         /// <summary>
-        /// Control rbM.
+        /// Control panelAntMed.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rbM;
+        protected global::System.Web.UI.WebControls.Panel panelAntMed;
         
         /// <summary>
-        /// Control rbF.
+        /// Control PlaceHolder1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton rbF;
+        protected global::System.Web.UI.WebControls.PlaceHolder PlaceHolder1;
         
         /// <summary>
-        /// Control upModal.
+        /// Control upModalBusqueda.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel upModal;
+        protected global::System.Web.UI.UpdatePanel upModalBusqueda;
+        
+        /// <summary>
+        /// Control txtBNom.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtBNom;
+        
+        /// <summary>
+        /// Control TextBox1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        
+        /// <summary>
+        /// Control txtBApe.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtBApe;
+        
+        /// <summary>
+        /// Control btnBusqAvanzada.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBusqAvanzada;
+        
+        /// <summary>
+        /// Control upModalSocial.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel upModalSocial;
         
         /// <summary>
         /// Control ddlOS.
@@ -236,32 +317,5 @@ namespace FisiksAppWeb {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnConfirmar;
-        
-        /// <summary>
-        /// Control btnDomicilio.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDomicilio;
-        
-        /// <summary>
-        /// Control btnAntecedentes.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAntecedentes;
-        
-        /// <summary>
-        /// Control btnCancelar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancelar;
     }
 }

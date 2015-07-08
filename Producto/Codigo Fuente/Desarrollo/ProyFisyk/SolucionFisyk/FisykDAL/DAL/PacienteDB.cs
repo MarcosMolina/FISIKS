@@ -28,7 +28,7 @@ namespace FisykDAL.DAL
             cmdPer.Parameters.Add(CreateParameter("iPSNFECHANAC", paciente.PsnFechaNac, 12));//VARCHAR
             cmdPer.Parameters.Add(CreateParameter("iPSNTELEFONO", paciente.PsnTelefono, 20));//VARCHAR
             cmdPer.Parameters.Add(CreateParameter("iPSNSEXO", paciente.PsnSexo, 1));//VARCHAR
-            cmdPer.Parameters.Add(CreateParameter("iPSN_DOMID", paciente.PsnDomId));//VARCHAR
+            cmdPer.Parameters.Add(CreateParameter("iPSNDOMICILIO", paciente.PsnDomicilio, 50));//VARCHAR
             cmdPer.Parameters.Add(CrearParametroSalida("oPSNID", OracleDbType.Int32));//NUMBER
 
             cmdPer.Transaction = tran;
@@ -49,6 +49,7 @@ namespace FisykDAL.DAL
             cmdPac.Parameters.Add(CreateParameter("iPAEALTURA", paciente.PaeAltura));//NUMBER
             cmdPac.Parameters.Add(CreateParameter("iPAEACTFISICA", paciente.PaeActFisica, 1));//VARCHAR
             cmdPac.Parameters.Add(CreateParameter("iPAEPERIODICIDAD", paciente.PaePeriodicidad));//NUMBER
+            cmdPac.Parameters.Add(CreateParameter("iPAE_OCUID", paciente.PaeOcuId));//NUMBER
             cmdPac.Parameters.Add(CreateParameter("iPAE_PSNID", paciente.PsnId));//NUMBER
             cmdPac.Parameters.Add(CrearParametroSalida("oPAEID", OracleDbType.Int32));//NUMBER
 
@@ -88,24 +89,6 @@ namespace FisykDAL.DAL
 
             #endregion
 
-            #region INSERT OCUPACIONES ----------------------------------------------------------------
-
-            OracleCommand cmdOcu = null; 
-            foreach (PacienteOcupacionesDto oPoc in paciente.PaeListOcupaciones)
-            {
-                cmdOcu = new OracleCommand("PRC_PACIENTEOCUPACIONES_INSERT");
-                cmdOcu.CommandType = CommandType.StoredProcedure;
-                cmdOcu.Connection = con;
-
-                cmdOcu.Parameters.Add(CreateParameter("iOSP_OSOID", oPoc.OpaOcuId));//NUMBER
-                cmdOcu.Parameters.Add(CreateParameter("iOSP_PAEID", paciente.PsnId));//NUMBER
-
-                cmdOcu.Transaction = tran;
-                cmdOcu.ExecuteNonQuery();//EJECUTO CONSULTA
-            }
-
-            #endregion
-
 
             tran.Commit();//COMMIT LA TRANSACCION
 
@@ -121,11 +104,6 @@ namespace FisykDAL.DAL
                 cmdObSoc.Connection.Dispose();
             }
 
-            if (cmdOcu != null)
-            {
-                cmdOcu.Connection.Close();//CERRAR
-                cmdOcu.Connection.Dispose();
-            }
         }
 
         //________________________________________________________________________________________________________

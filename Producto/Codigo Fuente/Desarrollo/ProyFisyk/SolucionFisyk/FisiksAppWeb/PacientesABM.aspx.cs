@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using FisiksAppWeb.Entities;
@@ -10,22 +11,19 @@ namespace FisiksAppWeb
 {
     public partial class PacientesAbm : Page
     {
+        static CheckBox[] arregloCheckBoxs;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Page.IsPostBack == false)
             {
-                panelDatos.Visible = true;
 
                 Cargar_DDL();
 
-                //gvOsocial.DataSource = ManagerOcupaciones.ListOcupaciones();
-                //gvOsocial.DataBind();
-                //gvOsocial.UseAccessibleHeader = true;
-                //gvOsocial.HeaderRow.TableSection = TableRowSection.TableHeader;
-
                 ObraSocialIniFila();
-                panelDatos.Visible = true;
             }
+
+
         }
 
 
@@ -38,6 +36,7 @@ namespace FisiksAppWeb
             paciente.PsnApellido = txtApellido.Value;
             paciente.PsnFechaNac = txtFecNac.Value;
             paciente.PsnTelefono = txtTel.Value;
+            paciente.PsnDomicilio = txtDire.Value;
             if (rbM.Checked) { paciente.PsnSexo = "M"; } else if (rbF.Checked) { paciente.PsnSexo = "F"; }
 
             paciente.PsnDomicilio = txtDire.Value;
@@ -57,6 +56,8 @@ namespace FisiksAppWeb
             }
             else { paciente.PaeActFisica = "N"; }
 
+            if (ddlOcu.SelectedIndex != 0) { paciente.PaeOcuId = Convert.ToInt16(ddlOcu.SelectedValue); }
+
             #endregion
             #region Obra Social ------------------------------------
 
@@ -64,47 +65,45 @@ namespace FisiksAppWeb
             List<PacienteOsDto> listaObraSoc = new List<PacienteOsDto>();
             foreach (DataRow dtRow in dtOs.Rows)
             {
-                var obrasSoc = new PacienteOsDto(Convert.ToInt32(dtRow[0].ToString()), Convert.ToInt64(dtRow[2].ToString()));
+                var obrasSoc = new PacienteOsDto();
+                obrasSoc.OspId = Convert.ToInt32(dtRow[0].ToString());
+                if (string.IsNullOrEmpty(dtRow[2].ToString())) { obrasSoc.OspNroSocio = Convert.ToInt64(dtRow[2].ToString()); }
                 // Agrego la lista de obras sociales al paciente
                 listaObraSoc.Add(obrasSoc);
             }
             paciente.PaeListObraSocial = listaObraSoc;
 
             #endregion
-            #region Ocupaciones ------------------------------------
+            #region Antecedentes Medicos ---------------------------
 
-            List<PacienteOcupacionesDto> listaOcupa = new List<PacienteOcupacionesDto>();
-            for (var i = 0; i < ListOcu.Items.Count; i++)
-            {
-                var ocupaciones = new PacienteOcupacionesDto(Convert.ToInt32(ListOcu.Items[i].Value));
-                //ocupaciones.OpaOcuId = Convert.ToInt32(ListOcu.Items[i].Value);//string info = ListOcu.Items[i].ToString();
-                // Agrego la lista de obras sociales al paciente
-                listaOcupa.Add(ocupaciones);
-            }
-            paciente.PaeListOcupaciones = listaOcupa;
+            List<PacienteAntecedentesDto> listaAntMedicos = new List<PacienteAntecedentesDto>();
 
             #endregion
+
+
         }
 
+        
         private void CargarDatosPantalla(PacienteDto paciente)
         {
             //  Persona
-            txtDoc.Value = paciente.PsnNroDcto;
-            txtNombre.Value = paciente.PsnNombre;
-            txtApellido.Value = paciente.PsnApellido;
-            txtFecNac.Value = paciente.PsnFechaNac;
-            paciente.PsnTelefono = txtTel.Value;
-            if (paciente.PsnSexo == "M") { rbM.Checked = true; rbF.Checked = false; }
-            else if (paciente.PsnSexo == "F") { rbM.Checked = false; rbF.Checked = true; }
+            //txtDoc.Value = paciente.PsnNroDcto;
+            //txtNombre.Value = paciente.PsnNombre;
+            //txtApellido.Value = paciente.PsnApellido;
+            //txtFecNac.Value = paciente.PsnFechaNac;
+            //paciente.PsnTelefono = txtTel.Value;
+            //if (paciente.PsnSexo == "M") { rbM.Checked = true; rbF.Checked = false; }
+            //else if (paciente.PsnSexo == "F") { rbM.Checked = false; rbF.Checked = true; }
+           
             //  Paciente
             //if (!string.IsNullOrEmpty(txtPeso.Value)) { Paciente.paePeso = Convert.ToDecimal(txtPeso.Value); }
             //if (!string.IsNullOrEmpty(txtAltura.Value)) { Paciente.paeAltura = Convert.ToInt16(txtAltura.Value); }
-            if (cbAct.Checked)
-            {
-                paciente.PaeActFisica = "S";
-                if (!string.IsNullOrEmpty(txtAct.Value)) { paciente.PaePeriodicidad = Convert.ToInt16(txtAct.Value); }
-            }
-            else { paciente.PaeActFisica = "N"; }
+            //if (cbAct.Checked)
+            //{
+            //    paciente.PaeActFisica = "S";
+            //    if (!string.IsNullOrEmpty(txtAct.Value)) { paciente.PaePeriodicidad = Convert.ToInt16(txtAct.Value); }
+            //}
+            //else { paciente.PaeActFisica = "N"; }
 
 
         }
@@ -131,7 +130,8 @@ namespace FisiksAppWeb
             }
         }
 
-        //Cargar DropDownList --------------------------------------------------------------------------------------
+        #region Cargar DropDownList --------------------------------------------------------------------------------------
+
         private void Cargar_DDL()
         {
             //________________________________________________________________________________________________________
@@ -147,6 +147,18 @@ namespace FisiksAppWeb
             ddlPeso.DataBind();
 
             //________________________________________________________________________________________________________
+            //  Cargar Maxima
+            var max = PublicData.ArrayMaxMin();
+            ddlMax.DataSource = max;
+            ddlMax.DataBind();
+
+            //________________________________________________________________________________________________________
+            //  Cargar Minima
+            var min = PublicData.ArrayMaxMin();
+            ddlMin.DataSource = min;
+            ddlMin.DataBind();
+
+            //________________________________________________________________________________________________________
             //  Cargar Ocupaciones
             ddlOcu.DataSource = ManagerOcupaciones.ListOcupaciones();
             ddlOcu.DataValueField = "ocuId";
@@ -160,8 +172,31 @@ namespace FisiksAppWeb
             ddlOS.DataTextField = "osoDescripcion";
             ddlOS.DataBind();
 
+            //________________________________________________________________________________________________________
+            //  Cargar Check Antecedentes Medicos
+            CargaAntecedentesMedicos();
         }
 
+        private void CargaAntecedentesMedicos()
+        {
+            List<AntecedenteMedicoDto> listAntMed = ManagerAntecedentesMedicos.ListAntecedenteMedico();
+            arregloCheckBoxs = new CheckBox[listAntMed.Count];
+            int nroPos = 0;
+            foreach (var antemed in listAntMed)
+            {
+                CheckBox nuevoCk = new CheckBox();
+                nuevoCk.ID = "ckAntMed" + antemed.AmeId.ToString();
+                //nuevoCk.Click += new EventHandler(cb_Click);
+                nuevoCk.Text = " " + antemed.AmeDescripcion.ToString();
+                arregloCheckBoxs[nroPos] = nuevoCk;
+                PlaceHolder1.Controls.Add(new LiteralControl("<div class='col-md-3'>"));
+                PlaceHolder1.Controls.Add(nuevoCk);
+                PlaceHolder1.Controls.Add(new LiteralControl("</div>"));
+                nroPos++;
+            }
+        }
+
+        #endregion
 
         #region Manejo de Obra Sociales ------------------------------------------------------------------------------------
 
@@ -214,7 +249,7 @@ namespace FisiksAppWeb
                     dtCurrentTable.Rows.Add(drCurrentRow);
                     ViewState["DadaTableOS"] = dtCurrentTable;
 
-                    //lblErrorSin.Visible = false;
+                    txtNrotarj.Value = null;
                     //lblErrorSin.Text = null;
                 }
                 else
@@ -248,6 +283,15 @@ namespace FisiksAppWeb
             }
         }
 
+        protected void ObraSocial_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        {
+            if (gvOsocial.Rows.Count > 0)
+            {
+                ddlOS.SelectedValue = gvOsocial.Rows[e.NewSelectedIndex].Cells[0].Text;
+                txtNrotarj.Value = gvOsocial.Rows[e.NewSelectedIndex].Cells[2].Text;
+            }
+        }
+
         protected void ObraSocialBindGrid()
         {
             gvOsocial.DataSource = ViewState["DadaTableOS"] as DataTable;
@@ -263,20 +307,17 @@ namespace FisiksAppWeb
 
         #endregion
 
-        protected void btnOcu_Click(object sender, EventArgs e)
+        protected void ckBusqueda_CheckedChanged(object sender, EventArgs e)
         {
-            if (ListOcu.Items.Count > 0)
-            {
-                for (var i = 0; i < ListOcu.Items.Count; i++)
-                {
-                    if (ddlOcu.SelectedItem.Value != ListOcu.Items[i].Value)
-                    {
-                        ListOcu.Items.Add(new ListItem(ddlOcu.SelectedItem.Text, ddlOcu.SelectedItem.Value));
-                    }
-                }
-            }
-            else { ListOcu.Items.Add(new ListItem(ddlOcu.SelectedItem.Text, ddlOcu.SelectedItem.Value)); }
+
         }
+
+        protected void btnBusqAvanzada_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
 
     }
 }
