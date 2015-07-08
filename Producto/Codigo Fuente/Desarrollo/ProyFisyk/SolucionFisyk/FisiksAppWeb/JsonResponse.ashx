@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Web;
 using System.Web.Script.Serialization;
 using System.Web.SessionState;
+using FisiksAppWeb.Entities;
 using FisykBLL;
 
 public class JsonResponse : IHttpHandler, IRequiresSessionState
@@ -17,24 +18,23 @@ public class JsonResponse : IHttpHandler, IRequiresSessionState
         DateTime end = Convert.ToDateTime(context.Request.QueryString["end"]);
 
         List<int> idList = new List<int>();
-        List<TurneroImportDTO> tasksList = new List<TurneroImportDTO>();
+        List<TurneroImportDto> tasksList = new List<TurneroImportDto>();
 
         //Generate JSON serializable events
-        foreach (TurneroDTO turno in ManagerTurnero.ListTurnero(start, end))
+        foreach (TurneroDto turno in ManagerTurnero.ListTurnero(start, end))
         {
-            tasksList.Add(new TurneroImportDTO
-                            {
-                                turImpId = turno.turId,
-                                turImpTitulo = turno.turTitulo,
-                                turImpDescripcion = turno.turDescripcion,
-                                turImpFechaIni = String.Format("{0:g}", turno.turFechaIni),
-                                turImpFechaFin = String.Format("{0:g}", turno.turFechaFin),
-                                turImpTodoDia = turno.turTodoDia,
-                                turImp_paeId = turno.tur_paeId,
-                               turImp_proId = turno.tur_proId
-                            }
+            tasksList.Add(new TurneroImportDto( 
+                turno.TurProId, 
+                turno.TurTitulo, 
+                turno.TurDescripcion,
+                String.Format("{0:g}", turno.TurFechaIni),
+                                String.Format("{0:g}", turno.TurFechaFin),
+                                turno.TurTodoDia,
+                               turno.TurPaeId,
+                                turno.TurProId
+                            )
                         );
-            idList.Add(turno.turId);
+            idList.Add(turno.TurId);
         }
 
         context.Session["idList"] = idList;

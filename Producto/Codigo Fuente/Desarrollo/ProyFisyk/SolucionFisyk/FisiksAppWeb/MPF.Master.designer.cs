@@ -7,10 +7,6 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-
 namespace FisiksAppWeb {
     
     
@@ -23,7 +19,7 @@ namespace FisiksAppWeb {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected ContentPlaceHolder head;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
         
         /// <summary>
         /// Control form1.
@@ -32,7 +28,7 @@ namespace FisiksAppWeb {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
         /// Control ScriptManager1.
@@ -41,7 +37,7 @@ namespace FisiksAppWeb {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected ScriptManager ScriptManager1;
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
         /// Control liPac.
@@ -50,7 +46,7 @@ namespace FisiksAppWeb {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected HtmlGenericControl liPac;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liPac;
         
         /// <summary>
         /// Control liMed.
@@ -59,7 +55,7 @@ namespace FisiksAppWeb {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected HtmlGenericControl liMed;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liMed;
         
         /// <summary>
         /// Control liAte.
@@ -68,7 +64,7 @@ namespace FisiksAppWeb {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected HtmlGenericControl liAte;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liAte;
         
         /// <summary>
         /// Control liRec.
@@ -77,7 +73,7 @@ namespace FisiksAppWeb {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected HtmlGenericControl liRec;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liRec;
         
         /// <summary>
         /// Control lblUser.
@@ -86,7 +82,7 @@ namespace FisiksAppWeb {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected Label lblUser;
+        protected global::System.Web.UI.WebControls.Label lblUser;
         
         /// <summary>
         /// Control liPaciente.
@@ -95,7 +91,7 @@ namespace FisiksAppWeb {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected HtmlGenericControl liPaciente;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liPaciente;
         
         /// <summary>
         /// Control liMedico.
@@ -104,7 +100,7 @@ namespace FisiksAppWeb {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected HtmlGenericControl liMedico;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liMedico;
         
         /// <summary>
         /// Control ContentPlaceHolder1.
@@ -113,6 +109,6 @@ namespace FisiksAppWeb {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected ContentPlaceHolder ContentPlaceHolder1;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
     }
 }

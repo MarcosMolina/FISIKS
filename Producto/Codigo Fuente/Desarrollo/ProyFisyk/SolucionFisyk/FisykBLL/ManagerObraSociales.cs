@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using FisiksAppWeb.Entities;
-using FisykDAL;
+using FisykDAL.DAL;
 
 namespace FisykBLL
 {

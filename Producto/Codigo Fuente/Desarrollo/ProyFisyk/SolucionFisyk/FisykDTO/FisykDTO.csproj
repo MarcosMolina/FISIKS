@@ -39,7 +39,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\PacienteOcupacionesDto.cs" />
     <Compile Include="Entities\AfeccionesTratamientosDTO.cs" />
     <Compile Include="Entities\AfeccionesDto.cs" />
     <Compile Include="Entities\AgendaDto.cs" />
