@@ -1,0 +1,9 @@
+1- ejecutar script_drop_tables.sql
+
+2- ejecutar script_create_final.sql
+
+3- ejecutar script_final_insert.sql
+
+4- ejecutar paquete PKG_TURNERO.PKS
+
+5- ejecutar paquete PKG_PACIENTE.PKS
