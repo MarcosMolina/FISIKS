@@ -24,6 +24,9 @@
             TurImpPaeId = turImpPaeId;
         }
 
+        public TurneroImportDto()
+        {
+        }
 
     }
 }

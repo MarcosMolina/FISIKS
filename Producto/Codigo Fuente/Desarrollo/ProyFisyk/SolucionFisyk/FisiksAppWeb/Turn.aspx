@@ -15,7 +15,7 @@
     <script src="LibsCalendar/jquery/jquery-ui-1.11.1.js" type="text/javascript"></script>
     <script src="LibsCalendar/jquery/jquery.qtip-2.2.0.js" type="text/javascript"></script>
     <script src="LibsCalendar/fullcalendar/fullcalendar-2.0.3.js" type="text/javascript"></script>
-    <script src="LibsCalendar/scripts/calendarscript.js" type="text/javascript"></script>
+    <script src="LibsCalendar/scripts/calendarscriptKAKA.js" type="text/javascript"></script>
 
     <style type='text/css'>
         body {
@@ -62,8 +62,14 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true"></asp:ScriptManager>
+            <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true">
+                
+            </asp:ScriptManager>
+            
+            
             <div id="calendar"></div>
+            
+
             <div id="updatedialog" style="font: 70% 'Trebuchet MS', sans-serif; margin: 50px; display: none;"
                 title="Update or Delete Event">
                 <table cellpadding="0" class="style1">
@@ -97,6 +103,7 @@
                     </tr>
                 </table>
             </div>
+
             <div id="addDialog" style="font: 70% 'Trebuchet MS', sans-serif; margin: 50px;" title="Add Event">
                 <table cellpadding="0" class="style1">
                     <tr>

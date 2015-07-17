@@ -11,28 +11,17 @@
     <!-- Bootstrap theme -->
     <link href="../Libs/css/bootstrap-theme.min.css" rel="stylesheet" />
 
-<!--
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    -->
-    <style type="text/css">
-        .bs-example{
-    	    margin: 90px;
-        }
-    </style>
+   
 
-     <asp:ContentPlaceHolder ID="head" runat="server">
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
 
         <asp:ScriptManager ID="ScriptManager1" runat="server">
-
         </asp:ScriptManager>
-
 
         <nav class="navbar navbar-default">
             <div class="container-fluid">
@@ -53,7 +42,8 @@
 
                         <li id="liPac" runat="server" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle" href="#">Pacientes <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li runat="server"><a href="PacientesABM.aspx">Pacientes</a></li>
+                                <li runat="server"><a href="PacientesABM.aspx?e=B">Ver Pacientes</a></li>
+                                <li runat="server"><a href="PacientesABM.aspx?e=N">Registrar Pacientes</a></li>
                                 <li runat="server"><a href="#">Historia Clínica</a></li>
                             </ul>
                         </li>
@@ -64,7 +54,7 @@
                         </li>
                         <li id="liAte" runat="server" class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle" href="#">Reportes <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li runat="server"><a href="#">Reporte 1</a></li>
+                                <li runat="server"><a href="AtenMedicos.aspx">Antecedentes Medicos</a></li>
                                 <li class="divider" />
                                 <li runat="server"><a href="#">Reporte 2</a></li>
                             </ul>
@@ -102,8 +92,10 @@
     </form>
     <!-- Bootstrap core JavaScript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- Placed at the end of the document so the pages load faster-->
     <script src="../Libs/js/jquery-2.1.4.min.js"></script>
     <script src="../Libs/js/bootstrap.min.js"></script>
+    <script src="../Libs/js/jquery.quicksearch.js"></script>
+
 </body>
 </html>

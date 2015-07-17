@@ -69,10 +69,17 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AtenMedicos.aspx" />
+    <Content Include="Home.aspx" />
     <Content Include="Img\banner.jpg" />
-    <Content Include="Img\check.png" />
-    <Content Include="Img\Delete.png" />
+    <Content Include="Img\delete16x16.png" />
+    <Content Include="Img\edit_16x16.png" />
+    <Content Include="Img\Fondo-Fisio-I.jpg" />
+    <Content Include="Img\Fondo-Fisio-II.jpg" />
+    <Content Include="Img\Fondo-Fisio-III.jpg" />
+    <Content Include="Img\Fondo-Fisio-IIII.jpg" />
     <Content Include="Img\list_remove.png" />
+    <Content Include="LibsCalendar\scripts\calendarscriptKAKA.js" />
     <Content Include="LibsCalendar\css\cupertino\images\animated-overlay.gif" />
     <Content Include="LibsCalendar\css\cupertino\images\ui-bg_diagonals-thick_90_eeeeee_40x40.png" />
     <Content Include="LibsCalendar\css\cupertino\images\ui-bg_flat_15_cd0a0a_40x100.png" />
@@ -103,7 +110,6 @@
     <Content Include="LibsCalendar\jquery\jquery-ui-timepicker-addon-1.4.5.js" />
     <Content Include="LibsCalendar\jquery\jquery.qtip-2.2.0.js" />
     <Content Include="LibsCalendar\jquery\moment-2.8.1.min.js" />
-    <Content Include="LibsCalendar\scripts\calendarscript.js" />
     <Content Include="Libs\css\bootstrap-theme.css.map" />
     <Content Include="Libs\css\bootstrap.css.map" />
     <Content Include="Libs\fonts\glyphicons-halflings-regular.eot" />
@@ -112,6 +118,7 @@
     <Content Include="Libs\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="LibsCalendar\jquery\jquery-2.1.1.min.map" />
     <Content Include="JsonResponse.ashx" />
+    <Content Include="Libs\js\jquery.quicksearch.js" />
     <Content Include="MPF.Master" />
     <Content Include="packages.config" />
     <Content Include="WebForm2.aspx" />
@@ -143,6 +150,20 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AtenMedicos.aspx.cs">
+      <DependentUpon>AtenMedicos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AtenMedicos.aspx.designer.cs">
+      <DependentUpon>AtenMedicos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MPF.Master.cs">
       <DependentUpon>MPF.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

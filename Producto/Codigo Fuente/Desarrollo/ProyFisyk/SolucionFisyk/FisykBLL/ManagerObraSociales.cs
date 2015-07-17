@@ -12,5 +12,12 @@ namespace FisykBLL
         {
             return ObraSocialDb.ListObraSociales();
         }
+
+        //________________________________________________________________________________________________________
+        //  Lista de Obras Sociales por Paciente
+        public static List<PacienteOsDto> ListObraSocialesPaciente(int paeId)
+        {
+            return ObraSocialDb.ListObraSocialesPaciente(paeId);
+        }
     }
 }

@@ -7,17 +7,24 @@ namespace FisykBLL
     {
         //__________________________________________________________________________
         //  Insertar Paciente
-        public static void GrabarPaciente(ref PacienteDto paciente)
+        public static void GrabarPacienteInsert(ref PacienteDto paciente)
         {
-            PacienteDb.GrabarPaciente(ref paciente);
+            PacienteDb.GrabarPacienteInsert(ref paciente);
+        }
+
+        //__________________________________________________________________________
+        //  Update Paciente
+        public static void GrabarPacienteUpdate(ref PacienteDto paciente)
+        {
+            PacienteDb.GrabarPacienteUpdate(ref paciente);
         }
 
         //__________________________________________________________________________
         //  Existe Paciente
-        //public static PacienteDTO ExistePaciente(string nroDoc)
-        //{
-        //    return PacienteDB.ConsultoUnPaciente(nroDoc);
-        //}
+        public static PacienteDto ExistePaciente(string nroDoc)
+        {
+            return PacienteDb.ConsultoUnPaciente(nroDoc);
+        }
 
 
     }

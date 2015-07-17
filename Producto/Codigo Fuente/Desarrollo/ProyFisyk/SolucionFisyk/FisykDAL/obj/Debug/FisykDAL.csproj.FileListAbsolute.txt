@@ -5,11 +5,11 @@ C:\Users\Chapa Santoro\Desktop\ProyFisyk\SolucionFisyk\FisykDAL\bin\Debug\FisykD
 C:\Users\Chapa Santoro\Desktop\ProyFisyk\SolucionFisyk\FisykDAL\bin\Debug\FisykDTO.pdb
 C:\Users\Chapa Santoro\Desktop\ProyFisyk\SolucionFisyk\FisykDAL\obj\Debug\FisykDAL.dll
 C:\Users\Chapa Santoro\Desktop\ProyFisyk\SolucionFisyk\FisykDAL\obj\Debug\FisykDAL.pdb
-D:\UTN\ProyFisyk\SolucionFisyk\FisykDAL\obj\Debug\FisykDAL.csprojResolveAssemblyReference.cache
 D:\UTN\ProyFisyk\SolucionFisyk\FisykDAL\bin\Debug\FisykDAL.dll
 D:\UTN\ProyFisyk\SolucionFisyk\FisykDAL\bin\Debug\FisykDAL.pdb
 D:\UTN\ProyFisyk\SolucionFisyk\FisykDAL\bin\Debug\FisykDTO.dll
 D:\UTN\ProyFisyk\SolucionFisyk\FisykDAL\bin\Debug\Oracle.DataAccess.dll
 D:\UTN\ProyFisyk\SolucionFisyk\FisykDAL\bin\Debug\FisykDTO.pdb
+D:\UTN\ProyFisyk\SolucionFisyk\FisykDAL\obj\Debug\FisykDAL.csprojResolveAssemblyReference.cache
 D:\UTN\ProyFisyk\SolucionFisyk\FisykDAL\obj\Debug\FisykDAL.dll
 D:\UTN\ProyFisyk\SolucionFisyk\FisykDAL\obj\Debug\FisykDAL.pdb

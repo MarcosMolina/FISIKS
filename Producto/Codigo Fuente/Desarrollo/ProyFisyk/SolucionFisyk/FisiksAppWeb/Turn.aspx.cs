@@ -16,7 +16,7 @@ namespace FisiksAppWeb
 
         }
 
-        [WebMethod(true)]
+        [System.Web.Services.WebMethod(true)]
         public static string UpdateEvent(TurneroDto pagTurnero)
         {
             List<int> idList = (List<int>)HttpContext.Current.Session["idList"];
@@ -40,7 +40,7 @@ namespace FisiksAppWeb
         }
 
 
-        [WebMethod(true)]
+        [System.Web.Services.WebMethod(true)]
         public static string UpdateEventTime(TurneroImportDto pagTurneroImp)
         {
             List<int> idList = (List<int>)HttpContext.Current.Session["idList"];
@@ -60,8 +60,8 @@ namespace FisiksAppWeb
         }
 
 
-        [WebMethod(true)]
-        public static String deleteEvent(int id)
+        [System.Web.Services.WebMethod(true)]
+        public static string DeleteEvent(int id)
         {
             List<int> idList = (List<int>)HttpContext.Current.Session["idList"];
             if (idList != null && idList.Contains(id))
@@ -73,8 +73,8 @@ namespace FisiksAppWeb
         }
 
 
-        [WebMethod]
-        public static int addEvent(TurneroImportDto pagTurneroImp)
+        [System.Web.Services.WebMethod(true)]
+        public static int AddEvent(TurneroImportDto pagTurneroImp)
         {
             TurneroDto turno = new TurneroDto();
             turno.TurTitulo = pagTurneroImp.TurImpTitulo;

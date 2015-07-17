@@ -10,6 +10,10 @@ namespace FisiksAppWeb.Entities
         public int OspOsoId { get; set; }
         public Int64 OspNroSocio { get; set; }
 
+        public string OsoDescripcion { get; set; }//45
+        public int OsoCoseguro { get; set; }
+        public string OsoContacto { get; set; }//20
+
         public PacienteOsDto()
         {
             OspId = IntNullValue;
