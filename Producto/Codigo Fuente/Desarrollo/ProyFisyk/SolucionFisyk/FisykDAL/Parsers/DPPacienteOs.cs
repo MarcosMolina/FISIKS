@@ -12,12 +12,21 @@ namespace FisykDAL.Parsers
         private int _ordOspOsoId;
         private int _ordOspNroSocio;
 
+        private int _ordOsoDescripcion;
+        private int _ordOsoCoseguro;
+        private int _ordOsoContacto;
+
         internal override void PopulateOrdinals(OracleDataReader reader)
         {
             _ordOspId = reader.GetOrdinal("ospId");
             _ordOspPaeId = reader.GetOrdinal("osp_paeId");
             _ordOspOsoId = reader.GetOrdinal("osp_osoId");
             _ordOspNroSocio = reader.GetOrdinal("OspNroSocio");
+
+            _ordOsoDescripcion = reader.GetOrdinal("osoDescripcion");
+            _ordOsoCoseguro = reader.GetOrdinal("osoCoseguro");
+            _ordOsoContacto = reader.GetOrdinal("osoContacto");
+
         }
 
         internal override DtoBase PopulateDto(OracleDataReader reader)
@@ -31,6 +40,16 @@ namespace FisykDAL.Parsers
             if (!reader.IsDBNull(_ordOspOsoId)) { pacienteOs.OspOsoId = reader.GetInt32(_ordOspOsoId); }
             // 
             if (!reader.IsDBNull(_ordOspNroSocio)) { pacienteOs.OspNroSocio = reader.GetInt64(_ordOspNroSocio); }
+
+
+            // 
+            if (!reader.IsDBNull(_ordOsoDescripcion)) { pacienteOs.OsoDescripcion = reader.GetString(_ordOsoDescripcion); }
+            // 
+            if (!reader.IsDBNull(_ordOsoCoseguro)) { pacienteOs.OsoCoseguro = reader.GetInt32(_ordOsoCoseguro); }
+            // 
+            if (!reader.IsDBNull(_ordOsoContacto)) { pacienteOs.OsoContacto = reader.GetString(_ordOsoContacto); }
+
+
             // IsNew
             pacienteOs.IsNew = false;
 

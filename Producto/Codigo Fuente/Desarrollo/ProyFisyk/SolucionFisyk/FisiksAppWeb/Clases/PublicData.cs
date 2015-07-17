@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 
-namespace FisiksAppWeb
+namespace FisiksAppWeb.Clases
 {
     public class PublicData
     {
@@ -9,7 +9,7 @@ namespace FisiksAppWeb
         public static ArrayList ArrayAltura()
         {
             ArrayList altura = new ArrayList();
-            altura.Add("");
+            altura.Add("Elegir...");
             for ( int i = 50 ; i <=  250 ; i++)
             {
                 altura.Add(i + " cm");
@@ -22,12 +22,10 @@ namespace FisiksAppWeb
         public static ArrayList ArrayPeso()
         {
             ArrayList peso = new ArrayList();
-            peso.Add("");
+            peso.Add("Elegir...");
             for (int i = 2; i <= 200; i++)
             {
-                peso.Add(i + ",0 Kg");
-                if (i == 200) { break; }
-                peso.Add(i + ",5 Kg");
+                peso.Add(i + " Kg");
             }
             return peso;
         }
@@ -38,6 +36,7 @@ namespace FisiksAppWeb
         public static ArrayList ArrayMaxMin()
         {
             ArrayList maxMin = new ArrayList();
+            maxMin.Add("Elegir...");
             maxMin.Add("");
             for (int i = 5; i <= 20; i++)
             {

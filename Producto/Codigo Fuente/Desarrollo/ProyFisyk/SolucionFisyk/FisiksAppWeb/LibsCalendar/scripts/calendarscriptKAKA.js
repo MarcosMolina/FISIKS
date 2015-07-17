@@ -207,7 +207,7 @@ $(document).ready(function () {
         width: 470,
         buttons: {
             "Add": function () {
-                alert("sent:" + $("#addEventPac").val());
+                alert("sentado :" + $("#addEventPac").val());
 
                 var eventToAdd = {
                     title: $("#addEventName").val(),
@@ -224,8 +224,7 @@ $(document).ready(function () {
                 }
                 else {
                     //alert("sending " + eventToAdd.pac);
-
-                    PageMethods.addEvent(eventToAdd, addSuccess);
+                    PageMethods.AddEvent(eventToAdd, addSuccess);
                     $('#calendar').fullCalendar('renderEvent',eventToAdd,true);
                     $('#calendar').fullCalendar('unselect');
                     $(this).dialog("close");

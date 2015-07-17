@@ -10,8 +10,11 @@ namespace FisykDAL.Parsers
         private int _ordPaeId;
         private int _ordPaePeso;
         private int _ordPaeAltura;
+        private int _ordPaeTensionMax;
+        private int _ordPaeTensionMin;
         private int _ordPaeActFisica;
         private int _ordPaePeriodicidad;
+        private int _ordPaeOcuId;
         private int _ordPaePsnId;
 
         private int _ordPsnId;
@@ -31,8 +34,12 @@ namespace FisykDAL.Parsers
             _ordPaeId = reader.GetOrdinal("paeId");
             _ordPaePeso = reader.GetOrdinal("paePeso");
             _ordPaeAltura = reader.GetOrdinal("paeAltura");
+            _ordPaeTensionMax = reader.GetOrdinal("paeTensionMax");
+            _ordPaeTensionMin = reader.GetOrdinal("paeTensionMin");
             _ordPaeActFisica = reader.GetOrdinal("paeActFisica");
             _ordPaePeriodicidad = reader.GetOrdinal("paePeriodicidad");
+            _ordPaeOcuId = reader.GetOrdinal("pae_OcuId");
+            
             _ordPaePsnId = reader.GetOrdinal("pae_psnId");
             
             _ordPsnId = reader.GetOrdinal("psnId");
@@ -57,12 +64,18 @@ namespace FisykDAL.Parsers
             // 
             if (!reader.IsDBNull(_ordPaeAltura)) { paciente.PaeAltura = reader.GetInt32(_ordPaeAltura); }
             // 
+            if (!reader.IsDBNull(_ordPaeTensionMax)) { paciente.PaeTensionMax = reader.GetInt32(_ordPaeTensionMax); }
+            // 
+            if (!reader.IsDBNull(_ordPaeTensionMin)) { paciente.PaeTensionMin = reader.GetInt32(_ordPaeTensionMin); }
+            // 
             if (!reader.IsDBNull(_ordPaeActFisica)) { paciente.PaeActFisica = reader.GetString(_ordPaeActFisica); }
+            //
+            if (!reader.IsDBNull(_ordPaeOcuId)) { paciente.PaeOcuId = reader.GetInt32(_ordPaeOcuId); }
             // 
             if (!reader.IsDBNull(_ordPaePeriodicidad)) { paciente.PaePeriodicidad = reader.GetInt32(_ordPaePeriodicidad); }
             // 
             if (!reader.IsDBNull(_ordPaePsnId)) { paciente.PaePsnId = reader.GetInt32(_ordPaePsnId); }
-
+            //
             if (!reader.IsDBNull(_ordPsnId)) { paciente.PsnId = reader.GetInt32(_ordPsnId); }
             // 
             if (!reader.IsDBNull(_ordPsnTpdId)) { paciente.PsnTpdId = reader.GetInt32(_ordPsnTpdId); }

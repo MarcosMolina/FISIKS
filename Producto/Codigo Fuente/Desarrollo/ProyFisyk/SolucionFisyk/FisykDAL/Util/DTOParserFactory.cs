@@ -13,6 +13,8 @@ namespace FisykDAL
             {
                 case "PacienteDto":
                     return new DpPaciente();
+                case "PacienteOsDto":
+                    return new DpPacienteOs();
                 case "ObraSocialDto":
                     return new DpObraSocial();
                 case "OcupacionesDto":

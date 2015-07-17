@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using FisiksAppWeb.Clases;
 using FisiksAppWeb.Entities;
 using FisykBLL;
 
@@ -17,13 +19,27 @@ namespace FisiksAppWeb
         {
             if (Page.IsPostBack == false)
             {
+                //-----------------------------------------------------------
+                txtNroHistoriaClinica.Disabled = true;
+                txtDocumento.Disabled = false;
+                //-----------------------------------------------------------
+                //B(busqueda) - N(nuevo)
+                string varEstado = Request.QueryString["e"];
+                PanelBusqueda.Visible = false;
+                PanelPantalla.Visible = true;
+                if (varEstado == "B")
+                {
+                    PanelBusqueda.Visible = true;
+                    PanelPantalla.Visible = false;
 
-                Cargar_DDL();
+                    btnConfirmar.Visible = false;
 
+                    txtDocumento.Disabled = true;
+                }
+                //-----------------------------------------------------------
+                CargarDatosIniciales();
                 ObraSocialIniFila();
             }
-
-
         }
 
 
@@ -31,7 +47,7 @@ namespace FisiksAppWeb
         {
             #region  Persona ----------------------------------------
 
-            paciente.PsnNroDcto = txtDoc.Value;
+            paciente.PsnNroDcto = txtDocumento.Value;
             paciente.PsnNombre = txtNombre.Value;
             paciente.PsnApellido = txtApellido.Value;
             paciente.PsnFechaNac = txtFecNac.Value;
@@ -39,16 +55,19 @@ namespace FisiksAppWeb
             paciente.PsnDomicilio = txtDire.Value;
             if (rbM.Checked) { paciente.PsnSexo = "M"; } else if (rbF.Checked) { paciente.PsnSexo = "F"; }
 
-            paciente.PsnDomicilio = txtDire.Value;
             #endregion
             #region  Paciente ---------------------------------------
 
             var varPeso = ddlPeso.SelectedValue;
             varPeso = varPeso.Replace("Kg", "");
-            if (ddlPeso.SelectedIndex != 0) { paciente.PaePeso = Convert.ToDecimal(varPeso); }
+            paciente.PaePeso = ddlPeso.SelectedIndex != 0 ? Convert.ToInt16(varPeso) : 0;
             var varAltura = ddlAltura.SelectedValue;
             varAltura = varAltura.Replace("cm", "");
-            if (ddlAltura.SelectedIndex != 0) { paciente.PaeAltura = Convert.ToInt16(varAltura); }
+            paciente.PaeAltura = ddlAltura.SelectedIndex != 0 ? Convert.ToInt16(varAltura) : 0;
+
+            paciente.PaeTensionMax = ddlMax.SelectedIndex != 0 ? Convert.ToInt16(ddlMax.SelectedValue) : 0;
+            paciente.PaeTensionMin = ddlMin.SelectedIndex != 0 ? Convert.ToInt16(ddlMin.SelectedValue) : 0;
+           
             if (cbAct.Checked)
             {
                 paciente.PaeActFisica = "S";
@@ -56,7 +75,7 @@ namespace FisiksAppWeb
             }
             else { paciente.PaeActFisica = "N"; }
 
-            if (ddlOcu.SelectedIndex != 0) { paciente.PaeOcuId = Convert.ToInt16(ddlOcu.SelectedValue); }
+            paciente.PaeOcuId = ddlOcu.SelectedIndex != 0 ? Convert.ToInt16(ddlOcu.SelectedValue) : 0;
 
             #endregion
             #region Obra Social ------------------------------------
@@ -66,9 +85,8 @@ namespace FisiksAppWeb
             foreach (DataRow dtRow in dtOs.Rows)
             {
                 var obrasSoc = new PacienteOsDto();
-                obrasSoc.OspId = Convert.ToInt32(dtRow[0].ToString());
-                if (string.IsNullOrEmpty(dtRow[2].ToString())) { obrasSoc.OspNroSocio = Convert.ToInt64(dtRow[2].ToString()); }
-                // Agrego la lista de obras sociales al paciente
+                obrasSoc.OspOsoId = Convert.ToInt32(dtRow[0].ToString());
+                if (!string.IsNullOrEmpty(dtRow["OSPNROSOCIO"].ToString())) { obrasSoc.OspNroSocio = Convert.ToInt64(dtRow["OSPNROSOCIO"].ToString()); }
                 listaObraSoc.Add(obrasSoc);
             }
             paciente.PaeListObraSocial = listaObraSoc;
@@ -76,47 +94,121 @@ namespace FisiksAppWeb
             #endregion
             #region Antecedentes Medicos ---------------------------
 
-            List<PacienteAntecedentesDto> listaAntMedicos = new List<PacienteAntecedentesDto>();
+
 
             #endregion
-
-
+            
+            var varEstado = Request.QueryString["e"];
+            if (varEstado == "B")
+            {
+                if (lblPaeId != null) paciente.PaeId = Convert.ToInt32(lblPaeId.Text);
+                if (lblPsnId != null) paciente.PsnId = Convert.ToInt32(lblPsnId.Text);
+            }
         }
 
-        
         private void CargarDatosPantalla(PacienteDto paciente)
         {
-            //  Persona
-            //txtDoc.Value = paciente.PsnNroDcto;
-            //txtNombre.Value = paciente.PsnNombre;
-            //txtApellido.Value = paciente.PsnApellido;
-            //txtFecNac.Value = paciente.PsnFechaNac;
-            //paciente.PsnTelefono = txtTel.Value;
-            //if (paciente.PsnSexo == "M") { rbM.Checked = true; rbF.Checked = false; }
-            //else if (paciente.PsnSexo == "F") { rbM.Checked = false; rbF.Checked = true; }
-           
-            //  Paciente
-            //if (!string.IsNullOrEmpty(txtPeso.Value)) { Paciente.paePeso = Convert.ToDecimal(txtPeso.Value); }
-            //if (!string.IsNullOrEmpty(txtAltura.Value)) { Paciente.paeAltura = Convert.ToInt16(txtAltura.Value); }
-            //if (cbAct.Checked)
-            //{
-            //    paciente.PaeActFisica = "S";
-            //    if (!string.IsNullOrEmpty(txtAct.Value)) { paciente.PaePeriodicidad = Convert.ToInt16(txtAct.Value); }
-            //}
-            //else { paciente.PaeActFisica = "N"; }
+            #region  Persona ----------------------------------------
+
+            lblPsnId.Text = paciente.PsnId.ToString();
+
+            txtDocumento.Value = paciente.PsnNroDcto;
+            txtNombre.Value = paciente.PsnNombre;
+            txtApellido.Value = paciente.PsnApellido;
+            txtFecNac.Value = paciente.PsnFechaNac;
+            txtTel.Value = paciente.PsnTelefono;
+            txtDire.Value = paciente.PsnDomicilio;
+            switch (paciente.PsnSexo) { case "M":rbM.Checked = true; rbF.Checked = false; break; case "F":rbM.Checked = false; rbF.Checked = true; break; }
+
+            #endregion
+            #region  Paciente ---------------------------------------
+
+            lblPaeId.Text = paciente.PaeId.ToString();
+
+            if (paciente.PaePeso == 0) { ddlPeso.SelectedIndex = 0; } else { ddlPeso.SelectedValue = paciente.PaePeso + " Kg"; }
+            if (paciente.PaeAltura == 0) { ddlAltura.SelectedIndex = 0; } else { ddlAltura.SelectedValue = paciente.PaeAltura + " cm"; }
+            if (paciente.PaeTensionMax == 0) { ddlMax.SelectedIndex = 0; } else { ddlMax.SelectedValue = paciente.PaeTensionMax.ToString(); }
+            if (paciente.PaeTensionMin == 0) { ddlMin.SelectedIndex = 0; } else { ddlMin.SelectedValue = paciente.PaeTensionMin.ToString(); }
+
+            if (cbAct.Checked)
+            {
+                paciente.PaeActFisica = "S";
+                if (!string.IsNullOrEmpty(txtAct.Value))
+                {
+                    paciente.PaePeriodicidad = Convert.ToInt16(txtAct.Value);
+
+                }
+            }
+            else
+            {
+                paciente.PaeActFisica = "N";
+                paciente.PaePeriodicidad = 0;
+            }
+
+            if (paciente.PaeOcuId == 0) { ddlPeso.SelectedIndex = 0; } else { ddlOcu.SelectedValue = Convert.ToString(paciente.PaeOcuId); }
 
 
+            #endregion
+            #region Obra Social ------------------------------------
+
+            ObraSocialIniFila();
+
+            var dtOs = (DataTable)ViewState["DadaTableOS"];
+
+            List<PacienteOsDto> listaObraSoc = ManagerObraSociales.ListObraSocialesPaciente(paciente.PaeId);
+            var dtCurrentTable = (DataTable)ViewState["DadaTableOS"];
+            foreach (var los in listaObraSoc)
+            {
+                DataRow drCurrentRow = null;
+                drCurrentRow = dtCurrentTable.NewRow();
+
+                drCurrentRow["OSOID"] = los.OspId;
+                drCurrentRow["OSODESCRIPCION"] = los.OsoDescripcion;
+                drCurrentRow["OSPNROSOCIO"] = los.OspNroSocio;
+
+                dtCurrentTable.Rows.Add(drCurrentRow);
+                ViewState["DadaTableOS"] = dtCurrentTable;
+            }
+
+            gvOsocial.DataSource = dtCurrentTable;
+            gvOsocial.DataBind();
+
+            ListObraSoial.DataSource = dtCurrentTable;
+            ListObraSoial.DataValueField = "OSOID";
+            ListObraSoial.DataTextField = "OSODESCRIPCION";
+            ListObraSoial.DataBind();
+
+            #endregion
+            #region Antecedentes Medicos ---------------------------
+
+
+
+            #endregion
         }
 
 
         //Botones --------------------------------------------------------------------------------------------------
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
+            lbl.Text = null;
             if (!string.IsNullOrEmpty(txtDoc.Value))
             {
-                //PacienteDTO pac = ManagerPacientes.ExistePaciente(txtDoc.Value.ToString());
+                PacienteDto pac = new PacienteDto();
+                pac = ManagerPacientes.ExistePaciente(txtDoc.Value);
 
-                //panelDatos.Visible = true;
+                if (pac != null)
+                {
+                    lbl.Text = "Existe";
+                    CargarDatosPantalla(pac);
+                    PanelPantalla.Visible = true;
+                    btnConfirmar.Visible = true;
+                }
+                else
+                {
+                    lbl.Text = "El paciente buscado No existe!, desea buscar otro? o registar este paciente?";
+                    PanelPantalla.Visible = false;
+                    btnConfirmar.Visible = false;
+                }
             }
         }
 
@@ -126,13 +218,21 @@ namespace FisiksAppWeb
             {
                 var personaPaciente = new PacienteDto();
                 ObtenerDatosPantalla(personaPaciente);
-                ManagerPacientes.GrabarPaciente(ref personaPaciente);
+                string varEstado = Request.QueryString["e"];
+                if (varEstado == "N")
+                {
+                    ManagerPacientes.GrabarPacienteInsert(ref personaPaciente);
+                }
+                else if (varEstado == "B")
+                {
+                    ManagerPacientes.GrabarPacienteUpdate(ref personaPaciente);
+                }
             }
         }
 
-        #region Cargar DropDownList --------------------------------------------------------------------------------------
+        #region Cargar Datos Iniciales
 
-        private void Cargar_DDL()
+        private void CargarDatosIniciales()
         {
             //________________________________________________________________________________________________________
             //  Cargar Altura
@@ -198,10 +298,11 @@ namespace FisiksAppWeb
 
         #endregion
 
-        #region Manejo de Obra Sociales ------------------------------------------------------------------------------------
+        #region Manejo de Obra Sociales
 
         private void ObraSocialIniFila()
         {
+            ViewState["DadaTableOS"] = null;
             //Obra Social
             var dtObraSoc = new DataTable();
             dtObraSoc.Columns.Add(new DataColumn("OSOID", typeof(int)));
@@ -215,6 +316,11 @@ namespace FisiksAppWeb
 
             ListObraSoial.DataSource = dtObraSoc;
             ListObraSoial.DataBind();
+
+            ListObraSoial.DataSource = dtObraSoc;
+            ListObraSoial.DataValueField = "OSOID";
+            ListObraSoial.DataTextField = "OSODESCRIPCION";
+            ListObraSoial.DataBind();
         }
 
         protected void btnObraSocial_Click(object sender, EventArgs e)
@@ -226,6 +332,8 @@ namespace FisiksAppWeb
         {
             if (ViewState["DadaTableOS"] != null)
             {
+                lblMsjObrasocial.Text = null;
+                lblMsjObrasocial.Visible = false;
                 var dtCurrentTable = (DataTable)ViewState["DadaTableOS"];
                 //recorro la tabla para saber si se agrego otro
                 var controlExiste = false;
@@ -233,8 +341,16 @@ namespace FisiksAppWeb
                 {
                     if (fila["OSOID"].ToString() == ddlOS.SelectedValue)
                     {
-                        controlExiste = true;
-                        break;
+                        lblMsjObrasocial.Visible = true;
+                        lblMsjObrasocial.Text = "Verifique los datos,  ya existe una Obra Social con distintos Número de Socio.";
+
+                        if (fila["OSOID"].ToString() == ddlOS.SelectedValue &&
+                            fila["OSPNROSOCIO"].ToString() == txtNrotarj.Value)
+                        {
+                            controlExiste = true;
+                            lblMsjObrasocial.Text = "Verifique los datos, ya existe una Obra Social con el mismo Número de Socio.";
+                            break;
+                        }
                     }
                 }
                 if (controlExiste == false)
@@ -244,19 +360,14 @@ namespace FisiksAppWeb
 
                     drCurrentRow["OSOID"] = ddlOS.SelectedItem.Value;
                     drCurrentRow["OSODESCRIPCION"] = ddlOS.SelectedItem.Text;
-                    drCurrentRow["OSPNROSOCIO"] = txtNrotarj.Value;
+                    if (!string.IsNullOrEmpty(txtNrotarj.Value)) { drCurrentRow["OSPNROSOCIO"] = txtNrotarj.Value; } else { drCurrentRow["OSPNROSOCIO"] = "0"; }
 
                     dtCurrentTable.Rows.Add(drCurrentRow);
                     ViewState["DadaTableOS"] = dtCurrentTable;
 
                     txtNrotarj.Value = null;
-                    //lblErrorSin.Text = null;
                 }
-                else
-                {
-                    //lblErrorSin.Visible = true;
-                    //lblErrorSin.Text = "(*) Seleccione otro Sintoma.";
-                }
+
                 gvOsocial.DataSource = dtCurrentTable;
                 gvOsocial.DataBind();
 
@@ -269,6 +380,9 @@ namespace FisiksAppWeb
 
         protected void ObraSocialEliminarFilaGrilla(object sender, GridViewDeleteEventArgs e)
         {
+            lblMsjObrasocial.Text = null;
+            lblMsjObrasocial.Visible = false;
+
             var index = Convert.ToInt32(e.RowIndex);
             var dt = ViewState["DadaTableOS"] as DataTable;
             if (dt.Rows.Count > 1)
@@ -317,7 +431,10 @@ namespace FisiksAppWeb
 
         }
 
-
+        protected void cbBusquedaAvanzada_CheckedChanged(object sender, EventArgs e)
+        {
+            PanelBusquedaAvanzada.Visible = cbBusquedaAvanzada.Checked;
+        }
 
     }
 }

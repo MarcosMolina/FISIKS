@@ -16,5 +16,12 @@ namespace FisykDAL.DAL
         }
 
         //________________________________________________________________________________________________________
+        public static List<PacienteOsDto> ListObraSocialesPaciente(int paeId)
+        {
+            OracleCommand cmd = GetDbSprocCommand("PRC_PACIENTEOS_SELECT_FILTRO");
+            cmd.Parameters.Add(CreateParameter("iPAEID", paeId));//VARCHAR
+            cmd.Parameters.Add("oCursorOSocial", OracleDbType.RefCursor, ParameterDirection.Output);//CURSOR
+            return GetDtoList<PacienteOsDto>(ref cmd);
+        }
     }
 }
