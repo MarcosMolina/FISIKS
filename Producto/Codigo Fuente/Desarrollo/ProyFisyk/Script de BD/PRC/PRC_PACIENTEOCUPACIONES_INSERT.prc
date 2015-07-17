@@ -3,13 +3,13 @@ CREATE OR REPLACE PROCEDURE FISIKS.PRC_PACIENTEOCUPACIONES_INSERT (
     iOPA_OCUID           IN PACIENTEOCUPACIONES.OPA_OCUID%TYPE := NULL)
 AS
 BEGIN
-           
+
         INSERT INTO PACIENTEOCUPACIONES
             (OPA_PAEID,
             OPA_OCUID)
         VALUES
             (iOPA_PAEID,
-            iOPA_OCUID);               
-            
+            iOPA_OCUID);
+
 END;
 /
