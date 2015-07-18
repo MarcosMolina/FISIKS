@@ -1,0 +1,13 @@
+CREATE OR REPLACE PROCEDURE FISIKS.PRC_PACIENTEOS_SELECT(
+    oCursorOSocial   OUT sys_refcursor)
+
+AS
+BEGIN
+    
+    OPEN oCursorOSocial FOR 
+        SELECT  * 
+        FROM    PACIENTEOS OP, OBRASOCIAL O
+        WHERE  OP.OSP_OSOID = O.OSOID ;
+
+END;
+/
