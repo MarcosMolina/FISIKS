@@ -8,7 +8,7 @@ BEGIN
    SELECT   *
    FROM     PERSONA , PACIENTE 
    WHERE   PAE_PSNID = PSNID 
-   AND       PSNNRODCTO = iPsnnrodcto;
-
+   AND       PSNNRODCTO = iPsnnrodcto
+   AND       ROWNUM < 2;
 END;
 /
